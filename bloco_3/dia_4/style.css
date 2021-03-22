@@ -1,27 +1,49 @@
 body{
     background-color: rgb(18, 236, 243);
-    
 }
 
 .title-page{
-    background-color: red;
+    
     text-align: center;
-    margin-top: 30px;
+    margin-top: 60px;
 }
 
 .nav-links{
-    overflow: hidden;
-  background-color: #333;
-  position: fixed; /* Set the navbar to fixed position */
-  top: 0; /* Position the navbar at the top of the page */
-  width: 100%; /* Full width */
+    text-align: center;
+    font-size: larger;
 }
 
-.nav-links a{
-    float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+h2,h3 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
+
+th {
+    font-size: larger;
+}
+
+table, th, td{
+    border:1px solid black;
+    padding: 5px 5px;
+}
+
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#vision{
+    width: 400px;
+}
+
+#distribution{
+    width: 400px;
+}
+
+#punch {
+    width: 400px;
 }
