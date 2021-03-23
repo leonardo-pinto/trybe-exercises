@@ -11,6 +11,27 @@ body{
 .nav-links{
     text-align: center;
     font-size: larger;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+.nav-links a {
+    background-color:rgb(162, 173, 182);
+    color: white;
+    text-decoration: none;
+    padding: 10px 10px;
+    border-radius: 80%;
+    margin-left: 20px;
+    margin-right: 20px;
+
+}
+
+
+.general-content{
+    display: inline-block;
+    width: 55%
+    
+
 }
 
 h2,h3 {
@@ -38,12 +59,30 @@ table, th, td{
 
 #vision{
     width: 400px;
+    display: block;
+    margin: auto;
 }
 
 #distribution{
     width: 400px;
+    display: block;
+    margin: auto;
 }
 
 #punch {
     width: 400px;
+    display: block;
+    margin: auto;
 }
+
+.extra-content{
+    display: inline-block;
+    width: 40%;
+   position: absolute;
+   margin-left: 50px;
+}
+
+#video{
+    margin-left: 70px;
+}
+
