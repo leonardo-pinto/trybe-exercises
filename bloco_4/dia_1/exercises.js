@@ -53,3 +53,15 @@ if (h > 0) {
 } else {
   console.log ("zero");
 }
+
+// Exercício 5.
+
+let i = 10;
+let j = 160;
+let k = 10;
+
+if (i + j + k == 180 && i > 0 && j > 0 && k > 0) {
+  console.log("true");
+} else {
+  console.log("false");
+}
