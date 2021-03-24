@@ -121,3 +121,16 @@ if (l % 2 == 0 | m % 2 ==0 | n % 2 == 0) {
 } else {
   console.log ("false");
 }
+
+// Exercício 9.
+
+let o = 10;
+let p = 12;
+let q = 104;
+
+if (o % 2 == 1 | p % 2 == 1 | q % 2 == 1) {
+  console.log ("true");
+} else {
+  console.log ("false");
+}
+
