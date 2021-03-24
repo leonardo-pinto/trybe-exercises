@@ -41,3 +41,15 @@ if (e > f && e > g) {
 } else {
   console.log(f)
 }
+
+// Exercício 4.
+
+let h = 0;
+
+if (h > 0) {
+  console.log ("positive");
+} else if (h < 0) {
+  console.log ("negative")
+} else {
+  console.log ("zero");
+}
