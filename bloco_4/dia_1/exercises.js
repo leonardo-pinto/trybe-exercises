@@ -15,7 +15,7 @@ console.log(division);
 console.log(mod);
 
 
-//Exercício 2.
+// Exercício 2.
 
 let c = 5;
 let d = 8;
@@ -26,4 +26,18 @@ if (c > d) {
   console.log(d)
 } else {
   console.log(c, "e", d, "são iguais")
+}
+
+// Exercício 3.
+
+let e = 200;
+let f = 350;
+let g = 115;
+
+if (e > f && e > g) {
+  console.log(e)
+} else if (e < f && f < g) {
+  console.log(g)
+} else {
+  console.log(f)
 }
