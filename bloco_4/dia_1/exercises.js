@@ -134,3 +134,16 @@ if (o % 2 == 1 | p % 2 == 1 | q % 2 == 1) {
   console.log ("false");
 }
 
+// Exercício 10.
+
+let productCost = -1000;
+let productTax = 1.2;
+let sellingPrice = 1600;
+let profitThousand = 1000 * (sellingPrice - (productCost * productTax));
+
+
+if (productCost < 0 | sellingPrice < 0) {
+  console.log ("error - negative values");
+} else {
+  console.log (profitThousand); 
+}
