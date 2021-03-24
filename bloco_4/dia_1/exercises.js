@@ -65,3 +65,31 @@ if (i + j + k == 180 && i > 0 && j > 0 && k > 0) {
 } else {
   console.log("false");
 }
+
+// Exercício 6.
+let piece = 'rook'
+
+switch (piece){
+  case "king":
+    console.log("One square in any direction");
+  break;
+  case "queen":
+    console.log("Any number of squares in any direction");
+  break;
+  case "rook":
+    console.log("Horizontally or vertically any number of squares");
+  break;
+  case "biship":
+    console.log("Diagonals any number of squares");
+  break;
+  case "knight":
+    console.log("L shape");
+  break;
+  case "pawn":
+    console.log("vertically forward one square");
+  break;
+  default:
+    console.log("error")
+}
+
+
