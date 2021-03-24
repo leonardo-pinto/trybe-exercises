@@ -109,3 +109,15 @@ if (grade >= 90) {
 } else {
   console.log ("F");
 }
+
+// Exercício 8.
+
+let l = 1;
+let m = 17;
+let n = 103;
+
+if (l % 2 == 0 | m % 2 ==0 | n % 2 == 0) {
+  console.log ("true");
+} else {
+  console.log ("false");
+}
