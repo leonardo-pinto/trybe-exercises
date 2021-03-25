@@ -37,3 +37,20 @@ if (sum/numbers.length > 20) {
 } else {
   console.log("Valor menor ou igual a 20");
 }
+
+// Exercício 5.
+
+let numbers = [5, 9, 3, 19, 700, 8, 101, 2, 35, 27];
+for (index = 0; index < numbers.length; index += 1) {
+  let timesHigh = 0;
+  let comparedNumber = numbers[index];
+  for (j = 0; j < numbers.length; j += 1) {
+    let arrayNumber = numbers[j];
+    if (comparedNumber > arrayNumber) {
+      timesHigh += 1;
+    }
+  }
+  if (timesHigh === 9) {
+    console.log (numbers[index]);
+  }
+}
