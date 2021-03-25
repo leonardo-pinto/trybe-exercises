@@ -88,3 +88,12 @@ for (index = 0; index < numbers.length; index += 1) {
     console.log (numbers[index]);
   }
 }
+
+// Exercício 8.
+
+let array = [];
+for (i = 1; i <= 25; i += 1) {
+ array.push(i);
+}
+
+console.log(array)
