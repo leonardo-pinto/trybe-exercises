@@ -54,3 +54,20 @@ for (index = 0; index < numbers.length; index += 1) {
     console.log (numbers[index]);
   }
 }
+
+// Exercício 6.
+
+let numbers = [5, 9, 30, 190, 700, 8, 101, 2, 35, 27];
+let odd = 0;
+for (index = 0; index < numbers.length; index += 1) {
+  let number = numbers[index];
+  if (number % 2 != 0) {
+    odd +=1;
+  }
+}
+
+if (odd != 0) {
+  console.log(odd);
+} else {
+  console.log("nenhum valor ímpar encontrado");
+}
