@@ -71,3 +71,20 @@ if (odd != 0) {
 } else {
   console.log("nenhum valor ímpar encontrado");
 }
+
+// Exercício 7.
+
+let numbers = [5, 9, 1, 19, 700, 8, 101, 2, 35, 27];
+for (index = 0; index < numbers.length; index += 1) {
+  let timesHigh = 0;
+  let comparedNumber = numbers[index];
+  for (j = 0; j < numbers.length; j += 1) {
+    let arrayNumber = numbers[j];
+    if (comparedNumber < arrayNumber) {
+      timesHigh += 1;
+    }
+  }
+  if (timesHigh === 9) {
+    console.log (numbers[index]);
+  }
+}
