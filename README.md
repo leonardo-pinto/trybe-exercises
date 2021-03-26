@@ -1,6 +1,6 @@
 # Exercícios propostos pela Trybe
 
-Nste repositório estão todas as atividades de aprendizagem desenvolvidas por _[Leonardo Antonio Pinto](https://www.linkedin.com/in/leonardo-antonio-pinto/)_ enquanto estudante na Trybe
+Neste repositório estão todas as atividades de aprendizagem desenvolvidas por _[Leonardo Antonio Pinto](https://www.linkedin.com/in/leonardo-antonio-pinto/)_ enquanto estudante na Trybe
 
 A Trybe é uma escola de desenvolvimento web. São mais de 1500 horas de formação que aborda fundamentos de desenvolvimento web, desenvolvimento front-end, back-end, ciência da computação, engenharia de software, metodologias ágeis e habilidades comportamentais.
 
@@ -34,4 +34,3 @@ A Trybe é uma escola de desenvolvimento web. São mais de 1500 horas de formaç
 - [ ] 4-4: _JavaScript - Lógica de programação e Algoritmos_
 - [ ] 4-5: _JavaScript - Objetos e funções_
 - [ ] 4-6: _Projeto - Playground Functions_
-
