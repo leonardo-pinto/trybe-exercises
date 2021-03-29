@@ -31,7 +31,6 @@ verifyPalindrome('jose');
 
 // Exercício 2.
 
-
 function indiceDoMaior(numeros) {
   let indiceMaior = 0;
   for (let indice in numeros) {
@@ -44,5 +43,18 @@ function indiceDoMaior(numeros) {
 
 console.log(indiceDoMaior([2, 3, 6, 7, 10, 1])); //4
 
-// Exercício 4.
+// Exercício 3.
+
+function indiceMenor(numeros) {
+  let indiceMenor = 0;
+  for (let indice in numeros) {
+    if (numeros[indiceMenor] > numeros [indice]) {
+      indiceMenor = indice;
+    }
+  }
+  return indiceMenor;
+}
+
+console.log(indiceMenor([2, 4, 6, -7, 10, 0, -3])); //6
+
 
