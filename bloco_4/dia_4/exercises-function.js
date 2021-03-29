@@ -31,20 +31,18 @@ verifyPalindrome('jose');
 
 // Exercício 2.
 
-function maxValueOfArray (listOfNumbers) {
-  for (i = 0; i < listOfNumbers.length; i += 1) {
-    let higherThan =0;
-    let number = listOfNumbers[i];
-    for (j = 0; j < listOfNumbers.length; j += 1) {
-      compNumber = listOfNumbers[j];
-      if (number >= compNumber) {
-        higherThan += 1;
-      }
-    }
-    if (higherThan === listOfNumbers.length) {
-      console.log(number);
+
+function indiceDoMaior(numeros) {
+  let indiceMaior = 0;
+  for (let indice in numeros) {
+    if (numeros[indiceMaior] < numeros[indice]) {
+      indiceMaior = indice;
     }
   }
+  return indiceMaior;
 }
 
-maxValueOfArray([2,3,6,70,10,1]);
+console.log(indiceDoMaior([2, 3, 6, 7, 10, 1])); //4
+
+// Exercício 4.
+
