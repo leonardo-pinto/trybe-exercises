@@ -29,3 +29,22 @@ function verifyPalindrome (word) {
 
 verifyPalindrome('jose');
 
+// Exercício 2.
+
+function maxValueOfArray (listOfNumbers) {
+  for (i = 0; i < listOfNumbers.length; i += 1) {
+    let higherThan =0;
+    let number = listOfNumbers[i];
+    for (j = 0; j < listOfNumbers.length; j += 1) {
+      compNumber = listOfNumbers[j];
+      if (number >= compNumber) {
+        higherThan += 1;
+      }
+    }
+    if (higherThan === listOfNumbers.length) {
+      console.log(number);
+    }
+  }
+}
+
+maxValueOfArray([2,3,6,70,10,1]);
