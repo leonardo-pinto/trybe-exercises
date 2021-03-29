@@ -45,3 +45,10 @@ for (let index in carro) {
   console.log(index,carro[index]);
 };
 
+
+function sum(a, b) {
+  let result = a + b;
+  return result;
+}
+
+sum(1,2);
