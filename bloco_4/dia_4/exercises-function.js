@@ -118,3 +118,30 @@ function summatory (n) {
 }
 
 console.log(summatory(4));
+
+// Exercício 7.
+// Crie uma função que receba uma string word e outra string ending . Verifique se a string ending é o final da string word . Considere que a string ending sempre será menor que a string word .
+
+function wordEnding (word,ending) {
+
+
+  let wordSize = word.length; // trybe = 5
+  let endingSize = ending.length; // be = 2
+  let equal = 0;
+  let isEqual = true;
+  for (let index = 1; index <= ending.length; index += 1) { // index 1
+    if (word[wordSize - index] === ending[endingSize - index]){
+      equal = equal + 1; 
+    }   // trybe[4] = e  === be[2]
+  }
+  if (equal === endingSize) {
+    isEqual = true;
+  } else {
+    isEqual = false;
+  }
+  return isEqual
+  //return endingS;
+}
+
+console.log(wordEnding('joaofernando','fernan'));
+
