@@ -73,4 +73,34 @@ function maiorCaract (nomes) {
 
 console.log(maiorCaract(['José', 'Lucas', 'Nádia', 'Fernanda', 'Cairo', 'Joana'])); //Fernanda
 
+// Exercício 5. 
+// Crie uma função que receba um array de inteiros e retorne o inteiro que mais se repete.
 
+
+// varrer o array
+// contar caso tenha um número igual
+
+function repeatedNumber (numbers) {
+  //let indexToCompare = 0;
+  
+  let contRepeat = 0;
+  let indexRepeat = 0;
+  let repetitions = 0;
+  for (let i in numbers) {
+    let number = numbers[i];
+    for (let j in numbers) {
+      if (number === numbers[j]){
+        repetitions += 1;
+      }
+    }
+    if (repetitions > contRepeat) {
+      contRepeat = repetitions;
+      indexRepeat = i;
+    }
+    repetitions = 0;
+  }
+  return numbers[indexRepeat];
+ 
+}
+
+console.log(repeatedNumber([2, 3, 3, 3, 3, 2, 7]))
