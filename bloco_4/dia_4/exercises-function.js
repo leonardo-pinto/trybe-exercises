@@ -104,3 +104,17 @@ function repeatedNumber (numbers) {
 }
 
 console.log(repeatedNumber([2, 3, 3, 3, 3, 2, 7]))
+
+
+// Exercício 6.
+//Crie uma função que receba um número inteiro N e retorne o somatório de todos os números de 1 até N.
+
+function summatory (n) {
+  let sum = 0;
+  for (index = 1; index <= n; index += 1) {
+    sum = sum + index;
+  }
+  return sum
+}
+
+console.log(summatory(4));
