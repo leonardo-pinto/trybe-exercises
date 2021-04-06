@@ -21,16 +21,36 @@
   </div>
 
   <script>
-    document.querySelector('#elementoOndeVoceEsta');
-    let paiColor = document.querySelector('#elementoOndeVoceEsta').parentNode;
-    paiColor.style.color = 'red';
-    document.querySelector('#primeiroFilhoDoFilho').innerText = 'xablau';
+    //document.querySelector('#elementoOndeVoceEsta');
+    //let paiColor = document.querySelector('#elementoOndeVoceEsta').parentNode;
+    //paiColor.style.color = 'red';
+    //document.querySelector('#primeiroFilhoDoFilho').innerText = 'xablau';
+    //document.querySelector('#pai').children[0];
+    //document.querySelector('#elementoOndeVoceEsta').previousElementSibling;
+    //document.querySelector('#elementoOndeVoceEsta').nextSibling;
+    //document.querySelector('#elementoOndeVoceEsta').nextElementSibling;
+    //document.querySelector('#pai').children[2]
 
-    document.querySelector('#pai').children[0];
-    document.querySelector('#elementoOndeVoceEsta').previousElementSibling;
-    document.querySelector('#elementoOndeVoceEsta').nextSibling;
-    document.querySelector('#elementoOndeVoceEsta').nextElementSibling;
-    document.querySelector('#pai').children[2]
+    //let paiElement = document.querySelector('#pai');
+    //let createBrother = document.createElement('div');
+    //createBrother.innexText = 'Irmão para elementoOndeVoceEsta';
+    //paiElement.appendChild(createBrother);
+    //let elementChild = document.querySelector('#elementoOndeVoceEsta');
+    //let createElementChild = document.createElement('div');
+    //createElementChild.innerText = 'filho do elementoOndeVoceEsta';
+    //elementChild.appendChild(createElementChild);
+    let element = document.querySelector('#pai').children;
+    for (let index = 0; index < element.length; index += 1) {
+      let elementChildren = element[index];
+      if (elementChildren.includes('primeiroFilho')) {
+        element.removeChild(elemetChildren);
+      }
+    }
+
+
+  //Remova todos os elementos da página, menos pai , elementoOndeVoceEsta e primeiroFilhoDoFilho .
+
+
   </script>
 </body>
 </html>
