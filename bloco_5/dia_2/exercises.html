@@ -88,9 +88,26 @@
       image.src = ('https://picsum.photos/200 ');
       document.querySelector('.left-content').appendChild(image);
 
-//7 Adicione uma imagem com src configurado para o valor https://picsum.photos/200 e classe small-image . Esse elemento deve ser filho do div criado no passo 5;
+      let unorderedList = document.createElement('ul');
+      unorderedList.id = 'numbers-list';
+      document.querySelector('.right-content').appendChild(unorderedList);
+      let listItems = document.createElement('li');
+      let numbers = [1,2,3,4,5,6,7,8,9,10];
+      for (let index = 0; index < numbers.length; index += 1) {
+        listItems.innerText = numbers[index];
+        document.querySelector('#numbers-list').appendChild(listItems);
+      }
 //8 Adicione uma lista não ordenada com os valores de 1 a 10 por extenso como valores da lista. Essa lista deve ser filha do div criado no passo 6;
 //9 Adicione 3 tags h3 , todas sendo filhas do div criado no passo 2.
+      function createSubTitle (tag) {
+        let subTitle = document.createElement(tag);
+        document.querySelector('.main-content').appendChild(subTitle);
+      }
+
+      createSubTitle('h3');
+      createSubTitle('h3');
+      createSubTitle('h3');
+
     </script>
   </body>
 </html>
