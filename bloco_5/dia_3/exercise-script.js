@@ -107,3 +107,30 @@ function fridayClick (fridayArray) {
 let dezFridays = [4, 11, 18, 25];
 fridayClick(dezFridays);
 
+
+
+
+function mouseOver () {
+  let days = document.querySelector('#days');
+  days.addEventListener('mouseover', function(event) {
+    event.target.style.fontSize = '40px';
+    event.target.style.fontWeight = '600';
+  });
+};
+mouseOver();
+
+function mouseOut () {
+  let days = document.querySelector('#days');
+  days.addEventListener('mouseout', function(event) {
+    event.target.style.fontSize = '20px';
+    event.target.style.fontWeight = '200';
+  });
+};
+mouseOut();
+
+
+
+
+
+// Implemente duas funções que criem um efeito de "zoom". Ao passar o ponteiro do mouse em um dia do mês no calendário, o texto desse dia deve aumentar e, quando o ponteiro do mouse sair do dia, o texto deve retornar ao tamanho original.
+// Dica - Propriedade: event.target .
