@@ -130,7 +130,12 @@ mouseOut();
 
 
 
-
-
-// Implemente duas funções que criem um efeito de "zoom". Ao passar o ponteiro do mouse em um dia do mês no calendário, o texto desse dia deve aumentar e, quando o ponteiro do mouse sair do dia, o texto deve retornar ao tamanho original.
-// Dica - Propriedade: event.target .
+function createTask (str) {
+  selectDiv = document.querySelector('.my-tasks');
+  task = document.createElement('span');
+  task.innerText = str;
+  selectDiv.appendChild(task);
+}
+createTask('Musculação');
+// Implemente uma função que adiciona uma tarefa personalizada ao calendário. A função deve receber como parâmetro a string com o nome da tarefa (ex: "cozinhar") e criar dinamicamente um elemento com a tag <span> contendo a tarefa.
+// O elemento criado deverá ser adicionado como filho/filha da tag <div> que possui a classe "my-tasks" .
