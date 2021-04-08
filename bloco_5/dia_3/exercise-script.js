@@ -128,8 +128,6 @@ function mouseOut () {
 };
 mouseOut();
 
-
-
 function createTask (str) {
   selectDiv = document.querySelector('.my-tasks');
   task = document.createElement('span');
@@ -137,5 +135,12 @@ function createTask (str) {
   selectDiv.appendChild(task);
 }
 createTask('Musculação');
-// Implemente uma função que adiciona uma tarefa personalizada ao calendário. A função deve receber como parâmetro a string com o nome da tarefa (ex: "cozinhar") e criar dinamicamente um elemento com a tag <span> contendo a tarefa.
-// O elemento criado deverá ser adicionado como filho/filha da tag <div> que possui a classe "my-tasks" .
+
+function insertLabel (str) {
+  let selectTask = document.querySelector('.my-tasks');
+  let backgroundColor = document.createElement('div');
+  backgroundColor.className = 'task';
+  backgroundColor.style.backgroundColor = str;
+  selectTask.appendChild(backgroundColor);
+}
+insertLabel('green');
