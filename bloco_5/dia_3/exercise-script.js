@@ -88,6 +88,22 @@ function fridayButton (str) {
   buttonSelection.appendChild(button);
 }
 fridayButton('Sexta-feira')
-// Implemente uma função que receba como parâmetro a string "Sexta-feira" e crie dinamicamente um botão com o nome "Sexta-feira".
-// Adicione a este botão o ID "btn-friday" .
-// Adicione este botão como filho/filha da tag <div> com classe "buttons-container" .
+
+
+function fridayClick (fridayArray) {
+  let button = document.querySelector('#btn-friday');
+  let fridays = document.querySelectorAll('.friday');
+  let newText = 'SEXTOU';
+  button.addEventListener('click', function(){
+  for (let index = 0; index < fridays.length; index += 1) {
+    if (fridays[index].innerHTML !== newText) {
+      fridays[index].innerHTML = newText;
+    } else {
+      fridays[index].innerHTML = dezFridays [index];
+    }
+  }
+  })
+};
+let dezFridays = [4, 11, 18, 25];
+fridayClick(dezFridays);
+
