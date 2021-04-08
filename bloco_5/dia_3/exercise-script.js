@@ -160,4 +160,16 @@ function selectTask () {
 
 selectTask();
 
-
+//function dayColor () {
+//  let selectDays = document.querySelector('#days');
+//  let color = 'rgb(119,119,119)'
+//  let newColor = document.querySelector('.task').style.backgroundColor;
+//  selectDays.addEventListener('click', function (event) {
+//    if (event.target.backgroundColor === color) {
+//      event.target.backgroundColor = newColor;
+//    } else {
+//      event.target.backgroundColor = color;
+//    }
+//  })
+//}
+//dayColor();
