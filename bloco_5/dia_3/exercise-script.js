@@ -144,3 +144,20 @@ function insertLabel (str) {
   selectTask.appendChild(backgroundColor);
 }
 insertLabel('green');
+
+
+function selectTask () {
+  let selectedTask = document.getElementsByClassName('task-selected')
+  let taskLabel = document.querySelector('.task');
+  taskLabel.addEventListener('click', function(event) {
+    if (selectedTask.length === 0) {
+      event.target.className = 'task-selected';
+    } else {
+      event.target.className = 'task'
+    }
+  })
+}
+
+selectTask();
+
+
