@@ -15,10 +15,8 @@ createDaysOfTheWeek();
 
 // Escreva seu código abaixo.
 
-const dezDaysList = [29, 30, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
-
-
 function createDays () {
+  const dezDaysList = [29, 30, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
   let days = document.querySelector('#days');
   for (let index = 0; index < dezDaysList.length; index += 1) {
     let monthDays = document.createElement('li');
@@ -64,13 +62,22 @@ function holidays(str) {
   button.innerText = str;
   buttonSelector.appendChild(button);
 }
-
 holidays('Feriados');
 
-//Implemente uma função que receba como parâmetro a string "Feriados" e crie dinamicamente um botão com o nome "Feriados".
+function holidayClick () {
+  let button = document.querySelector('#btn-holiday');
+  button.addEventListener('click',holidayClick);
+  let backgroundColor = 'rgb(238,238,238)';
+  let newColor = 'white';
+  let holidaysList = document.querySelectorAll('.holidays');
+  for (let index = 0; index < holidaysList.length; index += 1) {
+    if (holidaysList[index].style.backgroundColor === newColor) {
+      holidaysList[index].style.backgroundColor = backgroundColor;
+    } else {
+      holidaysList[index].style.backgroundColor = newColor;
+    }
+  }
+}
+holidayClick ()
 
 
-//Adicione a este botão a ID "btn-holiday" .
-
-
-//Adicione este botão como filho/filha da tag <div> com classe "buttons-container" .
