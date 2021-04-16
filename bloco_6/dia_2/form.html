@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Exercícios 6.1</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="bootstrap-5.0.0-beta3-dist/css/bootstrap.min.css">
+  <script src='bootstrap-5.0.0-beta3-dist/js/bootstrap.min.js'></script>
 </head>
 <body>
   <header>
@@ -11,67 +12,68 @@
   </header>
   <form method="get">
     <fieldset class='personal-data'>Dados pessoais
-      <div class='line-content'>
+      <div class='form-group'>
         <label for='name'>Nome:</label>
-        <input id='name' type="text" name='name' required maxlength='40'>
+        <input id='name' class='form-control' type="text" name='name' required maxlength='40'>
       </div>
       <br>
-      <div class='line-content'> 
+      <div class='form-group'> 
         <label for='email'>Email: </label>
-        <input type="text" name='email' id='email' maxlength='50' required>
+        <input type="text" class='form-control'  name='email' id='email' maxlength='50' required>
       </div>
       <br>
-      <div class='line-content'>
+      <div class='form-group'>
         <label for='cpf'>CPF:</label>
-        <input type='text' name='cpf' id='cpf' maxlength='11' required>
+        <input type='text' class='form-control'  name='cpf' id='cpf' maxlength='11' required>
       </div>
       <br>
-      <div class='line-content'>
+      <div class='form-group'>
         <label for='address'>Endereço:</label>
-        <input type="text" name="address" id="address" required maxlength='200'>
+        <input type="text" class='form-control'  name="address" id="address" required maxlength='200'>
       </div>
       <br>
-      <div class='line-content'>
+      <div class='form-group'>
         <label for='city'>Cidade</label>
-        <input type="text"name='city' id='city' required min='28'>
+        <input type="text"name='city' class='form-control'  id='city' required min='28'>
       </div>
       <br>
-      <div class='line-content'>
+      <div class='form-group'>
         <label for='state'>Estado</label>
-        <select name="state" id="state" value='' required></select>
+        <select name="state" id="state" class='form-control'  value='' required></select>
       </div>
       <br>
-      <div class='line-content'>
+      <div class='form-group'>
         <label for='type-1'>Tipo de imóvel
           <input type="radio" name='house-apartment' id="type-1" value='house' required>Casa
         </label>
         <label for='type-2'>
-          <input type="radio" name='house-apartment' id="type-2" value='apartment' required>Apartamento
+          <input type="radio"  name='house-apartment' id="type-2" value='apartment' required>Apartamento
         </label>
       </div>
     </fieldset>
     <fieldset class='last-job'>Dados do seu último emprego
-      <div class='line-content'>
+      <div class='form-group'>
         <label for="cv-resume"></label>Resumo do currículo:
-        <textarea name="cv-resume" id="cv-resume" cols="30" rows="10" maxlength="1000" required ></textarea>
+        <textarea class='form-control'  name="cv-resume" id="cv-resume" cols="30" rows="10" maxlength="1000" required ></textarea>
       </div>
-      <div class='line-content'>Cargo
+      <div class='form-group'>Cargo
         <label for='last-position'></label>
-        <input type="text" name="last-position" id="last-position" maxlength='40' required>
+        <input class='form-control'  type="text" name="last-position" id="last-position" maxlength='40' required>
       </div>
-      <div class='line-content'>Descrição do cargo
+      <div class='form-group'>Descrição do cargo
         <label for="last-position-description"></label>
-        <input type="text" name="last-position-description" id="last-position-description" required maxlength='500'>
+        <input type="text" name="last-position-description" class='form-control'  id="last-position-description" required maxlength='500'>
       </div>
-      <div class='line-content'>Data de início
+      <div class='form-group'>Data de início
         <label for='date-last-position'></label>
-        <input type="text" name="date-last-position" id="date-last-position" required placeholder='dd/mm/aaaa'>
+        <input class='form-control'  type="text" name="date-last-position" id="date-last-position" required placeholder='dd/mm/aaaa'>
       </div>
     </fieldset>
-    <button type="button" id='form-button'>Enviar</button>
+    <button class='btn btn-success' type="button" id='form-button'>Enviar</button>
     <button type="button" id='clear-form'>Limpar</button>
-    <div class='form-data'></div>
+    <section class='form-data'></section>
   </form>
   <script src='script.js'></script>
+
 </body>
 </html>
