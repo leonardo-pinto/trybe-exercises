@@ -16,7 +16,6 @@ function checkDate() {
   let checkDay = date[0]+date[1];
   let checkMonth = date[3]+date[4];
   let checkYear = date[6]+date[7]+date[8]+date[9];
-  console.log('xablau')
   if (parseInt(checkDay,10) <= 0 || parseInt(checkDay,10) > 31) {
     alert('O dia de nascimento deve conter valor entre 0 e 31');
   };
@@ -28,5 +27,27 @@ function checkDate() {
   }
 }
 
+const inputElements = document.querySelectorAll('input');
+masterButton.addEventListener('click', () => {
+  checkDate();
+  for (let index = 0; index < inputElements.length; index += 1) {
+    const div = document.createElement('div');
+    div.className = 'div-curriculum';
+    div.innerHTML = inputElements[index].value;
+    const dataUser = document.querySelector('.form-data');
+    dataUser.appendChild(div);
+  }
+});
 
-masterButton.addEventListener('click', checkDate());
+
+const clearButton = document.getElementById('clear-form');
+clearButton.addEventListener('click', () => {
+  const inputElements = document.querySelectorAll('input');
+  const textArea = document.querySelector('textarea');
+  for (let index = 0; index < inputElements.length; index += 1) {
+    inputElements[index].value = '';
+    textArea.value = ''
+  }
+})
+
+
