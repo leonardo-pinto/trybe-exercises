@@ -166,3 +166,32 @@ const output = sumAllNumbers(numbers);
 
 assert.strictEqual(typeof sumAllNumbers, 'function');
 assert.strictEqual(output, expected);
+////////////////////////////////////////////
+
+
+const assert = require('assert');
+// escreva a função findTheNeedle aqui
+const findTheNeedle = (arr) => {
+  let needleIndex;
+  for (let index = 0; index < arr.length; index += 1) {
+    if (arr[index] === 'needle') {
+      needleIndex = index;
+    }
+  }
+  return needleIndex;
+}
+
+let words = ['house', 'train', 'slide', 'needle', 'book'];
+let expected = 3;
+let output = findTheNeedle(words, 'needle');
+assert.strictEqual(output, expected);
+
+words = ['plant', 'shelf', 'arrow', 'bird'];
+expected = 0;
+output = findTheNeedle(words, 'plant');
+assert.strictEqual(output, expected);
+
+words = ['plant', 'shelf', 'arrow', 'bird'];
+expected = -1;
+output = findTheNeedle(words, 'plat');
+assert.strictEqual(output, expected);
