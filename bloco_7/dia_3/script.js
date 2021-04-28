@@ -148,3 +148,21 @@ const expected = [3, 6, 10, 5];
 assert.strictEqual(typeof wordLengths, 'function');
 const output = wordLengths(words);
 assert.deepStrictEqual(output, expected);
+////////////////////////////////////////////////
+
+
+const assert = require('assert');
+const sumAllNumbers = (arr) => {
+  let sommatory = 0;
+  for (let index = 0; index < arr.length; index += 1) {
+    sommatory += arr[index];
+  }
+  return sommatory;
+
+}
+const numbers = [9, 23, 10, 3, 8];
+const expected = 53;
+const output = sumAllNumbers(numbers);
+
+assert.strictEqual(typeof sumAllNumbers, 'function');
+assert.strictEqual(output, expected);
