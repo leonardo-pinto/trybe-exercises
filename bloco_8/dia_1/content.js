@@ -49,3 +49,69 @@ const doingThings = (input) => {
 }
 
 doingThings(wakingUp);
+
+/* https://www.freecodecamp.org/news/a-quick-intro-to-higher-order-functions-in-javascript-1a014f89c6b/ */
+
+const stocks = [
+  {
+    ticker: 'FB',
+    company: 'Facebook Inc.'
+  },
+  {
+    ticker: 'MU',
+    company: 'Micron Technology'
+  },
+  {
+    ticker: 'CL',
+    company: 'Colgate-Palmolive'
+  }
+];
+/*
+const stockList = () => {
+  let companies = [];
+  for (let index = 0; index < stocks.length; index += 1) {
+    companies.push(stocks[index].company);
+  }
+  return companies
+};
+console.log(stockList(stocks));*/
+
+const getName = (arr) => arr.company
+companiesName = stocks.map(arg => arg.company);
+console.log(companiesName); 
+/////////////////////////////////////////////
+
+
+const valueStocks = [
+  {
+    ticker: 'BRK.b',
+    company: 'Berkshire Hathaway Inc.'
+  },
+  {
+    ticker: 'KO',
+    company: 'Coca-Cola Company'
+  },
+  {
+    ticker: 'GS',
+    company: 'Goldman Sachs'
+  }
+];
+
+const startsWithG = (str) => str.toLowerCase().startsWith('g');
+//companyStartingWithG = [];
+
+/*for (let index = 0; index < valueStocks.length; index += 1) {
+  if (startsWithG(valueStocks[index].company)) {
+    companyStartingWithG.push(valueStocks[index]);
+  }
+}
+
+console.log(companyStartingWithG)*/
+
+companyStartingWithG = valueStocks.filter((strzzzz) => startsWithG(strzzzz.company));
+console.log(companyStartingWithG);
+
+//////////////////////////////////////////
+birthDates = [1990, 1993, 2001];
+const years = birthDates.map(item => 2021-item);
+console.log(years);
