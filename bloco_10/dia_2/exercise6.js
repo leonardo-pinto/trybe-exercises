@@ -22,4 +22,36 @@ const getAnimal = (name) => {
   return findAnimalByName(name).then(animalName => animalName);
 };
 
-module.exports = { findAnimalByName, getAnimal  }
+/*const findAnimalByAge = (age) => {
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const animalAge = age/*Animals.filter((animal) => animal.age === age)*/
+      //return resolve(animalAge);
+      /*if (animalAge.length !== 0) {
+        return resolve(animalAge);
+      };
+      const error = 'Nenhum animal com essa idade'
+      return reject(error);
+    }, 500)
+  })
+}*/
+const findAnimalByAge = (age) => (
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const listAnimals = Animals.filter((animal) => animal.age === age);
+      if (listAnimals.length !== 0) {
+        return resolve(listAnimals);
+      };
+      const messageError = 'Nenhum animal com essa idade';
+      return reject(messageError);
+    }, 100);
+  })
+);
+
+
+const getAnimalByAge = (age) => {
+  return findAnimalByAge(age)
+    .then(animal => animal);
+};
+
+module.exports = { findAnimalByName, getAnimal, findAnimalByAge, getAnimalByAge  }

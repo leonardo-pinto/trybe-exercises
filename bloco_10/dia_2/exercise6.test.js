@@ -1,6 +1,9 @@
-const { test, describe } = require('@jest/globals');
+const { test, describe, it, expect } = require('@jest/globals');
 const { findAnimalByName ,
-getAnimal } = require('./exercise6.js');
+getAnimal,
+findAnimalByAge,
+getAnimalByAge,
+} = require('./exercise6.js');
 
 
 describe('Testando promise - findAnimalByName', () => {
@@ -22,3 +25,20 @@ describe('Testando promise - findAnimalByName', () => {
     });
   });
 });
+
+describe('Testando promise - findAnimalByAge', () => {
+  describe('Quando existe o animal com a idade procurada', () => {
+    it('Animais com idade de 5 retorna apenas um objeto', () => {
+      expect.assertions(1);
+      return getAnimalByAge(5).then(animal => {
+        expect(animal).toEqual([{ name: 'Preguiça', age: 5, type: 'Cat' }]);
+      });
+    })
+  })
+  describe('Quando não existe o animal com a idade procurada', () => {
+    it('Não existem animais com idade de 50', () => {
+      expect.assertions(1);
+      return getAnimalByAge(50).catch(error => expect(error).toEqual('Nenhum animal com essa idade'));
+    });
+  });
+})
