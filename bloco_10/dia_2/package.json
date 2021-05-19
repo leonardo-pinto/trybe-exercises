@@ -2,7 +2,7 @@
   "name": "dia_2",
   "version": "1.0.0",
   "description": "",
-  "main": "content.js",
+  "main": "index.js",
   "scripts": {
     "test": "jest"
   },
