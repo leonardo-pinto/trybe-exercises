@@ -10,6 +10,7 @@ test('Testa a chamada mock da função subtrair', () => {
   math.subtrair = jest.fn()
   math.subtrair();
   expect(math.subtrair).toHaveBeenCalled();
+  math.subtrair.mockRestore();
 });
 
 // 2. Faça o mock da função multiplicar e implemente como retorno padrão o valor '10'. Teste a chamada e o retorno;
@@ -45,15 +46,15 @@ test('Teste a chamada, retorno, parâmetros e número de chamadas  da função d
 
 test('Teste chamadas e o retorno da função substrair, de maneira que seja possível restaurar sua implementação original', () => {
   // implementação da função original
-  expect(math.subtrair(2, 2)).resolves.toBe(0);
+  expect(math.subtrair(2, 2)).toBe(0);
 
   // cria o mock e coloca retorno padrão
-  const mockSubtrair = jest.spyOn(math, 'subtrair').mockReturnValue(20);
+  /*const mockSubtrair = jest.spyOn(math, 'subtrair').mockReturnValue(20);
   math.subtrair();
   expect(mockSubtrair).toHaveBeenCalled();
   expect(mockSubtrair()).toBe(20);
 
   // restaura a implementação original
   math.subtrair.mockRestore();
-  expect(math.subtrair(10, 8)).toBe(2);
+  expect(math.subtrair(10, 8)).toBe(2);*/
 })
