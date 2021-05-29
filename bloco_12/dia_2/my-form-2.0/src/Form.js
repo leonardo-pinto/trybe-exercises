@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import PersonalInfo from './PersonalInfo'
+import ProfessionalInfo from './ProfessionalInfo'
+import FormDataDisplay from './FormDataDisplay'
+import './Form.css'
 
 const defaultState = {
   name: '',
@@ -9,6 +12,10 @@ const defaultState = {
   city: '',
   state: '',
   addressType: '',
+  curriculum: '',
+  job: '',
+  jobDescription: '',
+  submitted: false,
 }
 
 export default class Form extends Component {
@@ -18,6 +25,8 @@ export default class Form extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleOnBlur = this.handleOnBlur.bind(this);
     this.updateState = this.updateState.bind(this);
+    this.resetForm = this.resetForm.bind(this);
+    this.sendForm = this.sendForm.bind(this);
   }
 
   updateState(name, value) {
@@ -37,22 +46,49 @@ export default class Form extends Component {
     let { name, value } = target
     if (name === 'city') value = value.match(/\d+/) ? '' : value;
     this.updateState(name, value);
-    
   }
 
   validateAddress(address) {
     return address.replace(/[^\w\s]/gi, '')
   }
 
+  resetForm() {
+    this.setState(defaultState);
+  }
+
+  sendForm() {
+    this.setState({ submitted: true })
+  }
+
   render() {
 
     return (
-      <form>
-          <PersonalInfo 
-          value={this.state} 
+      <form className="form">
+        <PersonalInfo 
+          currentState={ this.state } 
           handleChange={this.handleChange}
           handleOnBlur={this.handleOnBlur}
-          />
+        />
+
+        <ProfessionalInfo 
+          currentState={ this.state }
+          handleChange={this.handleChange}
+          handleOnMouseEnter={this.handleOnMouseEnter}
+        />
+
+        <button
+          type="button"
+          onClick= {this.sendForm}
+        >{'Submit'}
+        </button>
+
+        <input 
+          type="reset"
+          onClick={this.resetForm}
+        >
+        </input>
+        { this.state.submitted && <FormDataDisplay currentState={ this.state } />}
+        
       </form>
     )
   }

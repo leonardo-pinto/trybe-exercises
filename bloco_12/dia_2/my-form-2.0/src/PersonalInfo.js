@@ -5,7 +5,7 @@ const states = ['Rio de Janeiro', 'Minas Gerais', 'Amapá', 'Amazonas', 'São Pa
 export default class PersonalInfo extends Component {
   render() {
     const { handleChange, handleOnBlur } = this.props
-    const { name, email, cpf, address, city } = this.props.value
+    const { currentState: { name, email, cpf, address, city } } = this.props
 
     return (
       <fieldset>
@@ -79,6 +79,7 @@ export default class PersonalInfo extends Component {
             }
           </select>
         </div>
+        <div>
             <label htmlFor="house">
               <input
                 type="radio"
@@ -101,10 +102,7 @@ export default class PersonalInfo extends Component {
               />
               Apartment
             </label>
-        <div>
-
         </div>
-
       </fieldset>
     )
   }
