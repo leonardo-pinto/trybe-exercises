@@ -13,11 +13,13 @@ const CLEAR_CART = 'CLEAR_CART';
 const productReducer = (state = INITIAL_STATE, action) => {
   switch(action.type) {
     case ADD_PRODUCT:
-      return state;
+      return {...state, cartProducts: [...state.cartProducts, action.product]}
     case REMOVE_PRODUCT:
-      return state;
+      return {...state,
+        cartProducts: [...state.cartProducts.filter(cartProduct => cartProduct.name !== action.product.name)]}
     case CLEAR_CART:
-      return state;
+      return {...state,
+        cartProducts: []}
     default: 
       return state
   }
