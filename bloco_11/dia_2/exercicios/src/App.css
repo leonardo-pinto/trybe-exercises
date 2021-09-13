@@ -1,8 +1,0 @@
-.main-container {
-  display: flex;
-  text-align: center;
-  margin: 10px 10px;
-  border: 1px solid black;
-  flex-wrap: wrap;
-  justify-content: center;
-}
