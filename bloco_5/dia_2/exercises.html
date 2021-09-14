@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Exercício 5.2</title>
+    <style>
+      div {
+        border-color: black;
+        border-style: solid;
+      }
+
+      .title {
+        text-align: center;
+      }
+
+      .main-content {
+        background-color: yellow;
+      }
+
+      .main-content .center-content {
+        background-color: red;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .main-content .center-content p {
+        font-style: italic;
+      }
+
+      .main-content .left-content {
+        background-color: green;
+        width: 60%;
+        margin-left: 0;
+        margin-right: auto;
+      }
+
+      .main-content .left-content .small-image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 100%;
+      }
+
+      .main-content .right-content {
+        background-color: blue;
+        width: 60%;
+        margin-left: auto;
+        margin-right: 0;
+      }
+
+      .main-content .description {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+
+      let title = document.createElement('h1');
+      title.innerText = 'Exercício 5.2 - JavaScript DOM como filho da tag body';
+      document.body.appendChild(title);
+
+      let bodyChild = document.createElement('div');
+      bodyChild.className = 'main-content';
+      document.body.appendChild(bodyChild);
+
+      let bodyChildChild = document.createElement('div');
+      bodyChildChild.className = 'center-content';
+      document.querySelector('.main-content').appendChild(bodyChildChild);
+
+      let paragraphDiv = document.createElement('p');
+      paragraphDiv.innerText = 'parágrafo filho da div bodyChildChild';
+      document.querySelector('.center-content').appendChild(paragraphDiv);
+
+      let divLeftContent = document.createElement('div');
+      divLeftContent.className = 'left-content';
+      document.querySelector('.main-content').appendChild(divLeftContent);
+
+      let divRightContent = document.createElement('div');
+      divRightContent.className = 'right-content';
+      document.querySelector('.main-content').appendChild(divRightContent);
+
+      let image = document.createElement('img');
+      image.className = 'small-image';
+      //image.setAttribute(src="https://picsum.photos/200");
+      image.src = ('https://picsum.photos/200 ');
+      document.querySelector('.left-content').appendChild(image);
+
+      let unorderedList = document.createElement('ul');
+      unorderedList.id = 'numbers-list';
+      document.querySelector('.right-content').appendChild(unorderedList);
+      
+      for (let index = 0; index <= 10; index += 1) {
+        let listItems = document.createElement('li');
+        listItems.innerText = index;
+        unorderedList.appendChild(listItems);
+      }
+
+      function createSubTitle (tag) {
+        let subTitle = document.createElement(tag);
+        document.querySelector('.main-content').appendChild(subTitle);
+      }
+
+      createSubTitle('h3');
+      createSubTitle('h3');
+      createSubTitle('h3');
+
+      title.className = 'title';
+
+      let subTitles = document.querySelectorAll('h3');
+      for (let index = 0; index < subTitles.length; index += 1) {
+        subTitles[index].className = 'description';
+      }
+      
+
+      let selectDiv = document.querySelector('.main-content');
+      selectDiv.removeChild(divLeftContent);
+
+
+      let centerDiv = document.querySelector('.right-content');
+      centerDiv.style.marginRight = 'auto';
+
+
+      let changeBackground = document.querySelector('.center-content').parentElement;
+      changeBackground.style.backgroundColor = 'green';
+//5 Troque a cor de fundo do elemento pai da div criada no passo 3 (aquela que possui a classe center-content ) para a cor verde;
+//6 Remova os dois últimos elementos ( nove e dez ) da lista criada no passo 8.
+
+    </script>
+  </body>
+</html>
