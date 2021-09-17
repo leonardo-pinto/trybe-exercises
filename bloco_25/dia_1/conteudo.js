@@ -145,4 +145,4 @@ db.clients.aggregate(
       },
     },
   ],
-).pretty();
+)
