@@ -5,7 +5,7 @@ function calculate(num1, num2, num3) {
     }
 
     const resultado = ((num1 + num2) * num3);
-    if (resultado < 50) reject(new Error("Valor muito baixo"))
+    if (resultado < 5000) reject(new Error("Valor muito baixo"))
     if (resultado >= 50) resolve(resultado);
   });
 }
@@ -15,11 +15,14 @@ function randomNumber () {
 };
 
 
-function callCalculate() {
+async function callCalculate() {
   const generateRandomNumbers = Array.from({ length: 3 }).map(randomNumber);
-  calculate(...generateRandomNumbers)
-    .then(res => console.log(res))
-    .catch(err => console.log(err.message));
-}
+  try {
+    const result = await calculate(...generateRandomNumbers);
+    console.log(result);
+  } catch (err) {
+    console.log(err.message)
+  }
+};
 
-callCalculate();
+callCalculate()
