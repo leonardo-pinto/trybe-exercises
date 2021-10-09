@@ -51,7 +51,7 @@ const findById = async (id) => {
 }
 
 const updateUser = async (id, { firstName, lastName, email, password }) => {
-  if (!ObjectId.isValid(id)) return null; //verificar funcionamento
+  if (!ObjectId.isValid(id)) return 'id nulo' //verificar funcionamento
 
   const updatedUser = await connection()
     .then((db) => {
