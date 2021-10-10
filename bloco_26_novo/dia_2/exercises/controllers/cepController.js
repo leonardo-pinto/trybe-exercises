@@ -5,15 +5,12 @@ const rescue = require('express-rescue');
 
 const findCep = [
   validateFindCep,
-  rescue (async (req, res) => {
-    const cep = req.params;
+  rescue (async (req, res, next) => {
+    const findByCep = await cepServices.findCep(req.params);
 
-    const findByCep = await cepServices.findCep(cep);
-
-    console.log(findByCep.error);
-
-    if (findByCep.error === 'not found') {
-      return res.status(404).json({ error: { code: "notFound", message: "CEP não encontrado" } })
+    if (findByCep.error) {
+      return next(findByCep.error);
+      // return res.status(404).json({ error: { code: "notFound", message: "CEP não encontrado" } })
     }
 
     return res.status(200).json(findByCep);
@@ -22,13 +19,12 @@ const findCep = [
 
 const createCep = [
   validateCreateCep,
-  rescue (async (req, res) => {
-    const { cep, logradouro, bairro, localidade, uf } = req.body;
-    
-    const createdCep = await cepServices.createCep({ cep, logradouro, bairro, localidade, uf });
+  rescue (async (req, res, next) => {
+    const createdCep = await cepServices.createCep(req.body);
 
-    if (createdCep.error === 'alreadyExists') {
-      return res.status(409).json({ error: { code: "alreadyExists", message: "CEP já existente" } });
+    if (createdCep.error) {
+      // return res.status(409).json({ error: { code: "alreadyExists", message: "CEP já existente" } });
+      return next(createCep.error);
     };
     
     res.status(201).json(createdCep);

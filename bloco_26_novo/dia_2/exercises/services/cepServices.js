@@ -9,9 +9,14 @@ const findCep = async ({ cep }) => {
   
   const findByCep = await cepModel.findCep(formattedCep);
 
-  if (findByCep.length === 0) {
-    return { error: "not found" };
-  }
+  if (!findByCep) {
+    return { 
+      error: {
+        code: "notFound",
+        message: "CEP não encontrado",
+      },
+    };
+  };
 
   return findByCep;
 }
@@ -23,10 +28,17 @@ const createCep = async ({ cep, logradouro, bairro, localidade, uf }) => {
     formattedCep = cep.replace('-', '');
   }
 
-  const cepExists = await cepModel.cepExists(formattedCep);
+  const cepExists = await cepModel.findCep(formattedCep);
   
-  if (cepExists) return { error: "alreadyExists" };
-
+  if (cepExists) {
+    return { 
+      error: {
+        code: "already exists",
+        message: "CEP já existente",
+      },
+    };
+  }
+  
   return await cepModel.createCep({ formattedCep, logradouro, bairro, localidade, uf });
 };
 
