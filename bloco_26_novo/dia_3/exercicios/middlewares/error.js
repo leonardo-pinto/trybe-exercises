@@ -6,7 +6,7 @@ module.exports = (err, _req, res, _next) => {
 
     const status = statusByCodeError[err.code] || 500;
 
-    return res.status(status).json(err);
+    return res.status(status).send(err.message);
   }
 
   if (err.isJoi) {

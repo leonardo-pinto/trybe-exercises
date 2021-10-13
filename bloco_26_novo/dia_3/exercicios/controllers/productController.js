@@ -1,9 +1,23 @@
 const express = require('express');
 const rescue = require('express-rescue');
-const ProductModel = require('../models/productModel');
+// const ProductModel = require('../models/productModel');
+const ProductModel = require('../models/productModelMongo');
 const validateBody = require('../middlewares/validateBody');
 
 const router = express.Router();
+
+router.get('/:id', async (req, res, next) => {
+  const product = await ProductModel.getById(req.params.id);
+
+  console.log(product);
+
+  if (!product) {
+    return next({ code: 'notFound', message:'Product not found'}) // Joi
+    // return res.status(404).json({ error: { message: "Product not found" } })
+  }
+
+  return res.status(200).json(product);
+});
 
 router.get('/', async (_req, res, _next) => {
   const products = await ProductModel.getAll();
@@ -11,15 +25,6 @@ router.get('/', async (_req, res, _next) => {
   res.status(200).json(products);
 });
 
-router.get('/:id', async (req, res, _next) => {
-  const product = await ProductModel.getById(req.params.id);
-
-  if (!product) {
-    return res.status(404).json({ error: { message: "Product not found" } })
-  }
-
-  return res.status(200).json(product);
-});
 
 router.post(
   '/', 
@@ -58,7 +63,7 @@ router.put(
  
   const products = await ProductModel.update(req.params.id, name, brand);
 
-  res.status(200).json(products);
+  return res.status(200).json(products);
 });
 
 module.exports = router;
