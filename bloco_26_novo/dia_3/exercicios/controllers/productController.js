@@ -9,10 +9,8 @@ const router = express.Router();
 router.get('/:id', async (req, res, next) => {
   const product = await ProductModel.getById(req.params.id);
 
-  console.log(product);
-
   if (!product) {
-    return next({ code: 'notFound', message:'Product not found'}) // Joi
+     return next({ code: 'notFound', message:'Product not found'})// Joi
     // return res.status(404).json({ error: { message: "Product not found" } })
   }
 
