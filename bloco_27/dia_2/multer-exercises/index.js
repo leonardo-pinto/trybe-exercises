@@ -3,10 +3,10 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const multer = require('multer');
-const fs = require('fs');
 
 const { PORT } = process.env;
 
+const services = require('./services');
 const controllers = require('./controllers');
 const middlewares = require('./middlewares');
 
@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(`${__dirname}/uploads`));
 
-const storage = multer.diskStorage({
+const fileStorage = multer.diskStorage({
   destination: (req, file, callback) => {
     callback(null, 'uploads');
   },
@@ -33,38 +33,25 @@ const storage = multer.diskStorage({
   },
 });
 
-const upload = multer({ storage });
-
-const fileExists = (fileName) => {
-  const files = fs.readdirSync(`${__dirname}/uploads`);
-
-  return files.some((file) => file === fileName);
-};
-
-const fileFilter = (req, file, cb) => {
+const fileFilter = (req, file, callback) => {
   if (file.mimetype !== 'image/png') {
     req.fileValidationError = true;
-
-    return cb(null, false);
+    return callback(null, false);
   }
 
-  if (fileExists(file.originalname)) {
-    req.fileDuplicated = true;
-
-    return cb(null, false);
+  if (services.fileExists(file.originalname)) {
+    req.fileExistsError = true;
+    return callback(null, false);
   }
-
-  cb(null, true);
+  
+  callback(null, true);
 };
+
+const upload = multer({ storage: fileStorage, fileFilter });
 
 app.get('/ping', controllers.ping);
 
-app.post(
-  '/upload',
-  fileFilter,
-  upload.single('file'),
-  controllers.upload,
-);
+app.post('/upload', upload.single('file'), controllers.upload);
 
 app.use(middlewares.error);
 

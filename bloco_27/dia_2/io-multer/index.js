@@ -24,7 +24,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static(`${__dirname}/uploads`));
 
-const upload = multer({ dest: 'uploads' });
+const storage = multer.diskStorage({
+  destination: (req, file, callback) => {
+    callback(null, 'uploads');
+  },
+  filename: (req, file, callback) => {
+    callback(null, file.originalname);
+  },
+});
+
+const upload = multer({ storage });
+// const upload = multer({ dest: 'uploads' });
 
 app.get('/ping', controllers.ping);
 
