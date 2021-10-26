@@ -53,6 +53,29 @@ app.get('/ping', controllers.ping);
 
 app.post('/upload', upload.single('file'), controllers.upload);
 
+const defaultStorage = multer.diskStorage({
+  destination: (req, file, callback) => {
+    callback(null, 'uploads');
+  },
+});
+
+const multipleUpload = multer({ storage: defaultStorage });
+
+app.post('/multiple', multipleUpload.array('files'), controllers.multiple);
+
+// const profileStorage = multer.diskStorage({
+//   destination: (req, file, callback) => {
+//     callback(null, 'profilePics');
+//   },
+// });
+
+// if the conditions are default it is not necessary to create
+// const profileUpload = multer({ storage: profileStorage });
+app.get('/profiles/:id', controllers.getProfiles);
+
+app.post('/profile', multer({ dest: 'profilePics' })
+.single('profilePic'), controllers.createProfile);
+
 app.use(middlewares.error);
 
 app.listen(PORT, () => {
