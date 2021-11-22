@@ -1,87 +1,46 @@
-const defaultPlants = [
-  {
-    id: 1,
-    breed: "Bromelia",
-    needsSun: false,
-    origin: "Argentina",
-    size: 102,
-    specialCare: {
-      waterFrequency: 3,
-    },
-  },
-  {
-    id: 2,
-    breed: "Orquidea",
-    size: 99,
-    needsSun: false,
-    origin: "Brazil",
-  },
-];
+const express = require('express');
+const app = express();
+const plantsServices = require('./plants.js');
 
-let createdPlants = 0;
+app.use(express.json());
 
-const initPlant = (id, breed, needsSun, origin, specialCare, size) => {
-  const waterFrequency = needsSun ? size *  0.77 + (origin === 'Brazil' ? 8 : 7)
-    : (size / 2) *  1.33 + (origin === 'Brazil' ? 8 : 7)
-  const newPlant = {
-    id,
-    breed,
-    needsSun,
-    origin,
-    specialCare: {
-      waterFrequency,
-      ...specialCare,
-    },
-    size,
-  };
-  return newPlant;
-};
+app.get('/plants', (_req, res) => {
+  const plants = plantsServices.getPlants();
+  res.status(200).json(plants);
+});
 
-const savePlants = () => {
-  const plants = JSON.stringify(defaultPlants);
-  localStorage.setItem("plants", plants);
-};
+app.get('/plant/:id', (req, res) => {
+  const { id } = req.params;
+  const plant = plantsServices.getPlantById(id);
+  res.status(200).json(plant);
+});
 
-const getPlants = () => {
-  const plants = JSON.parse(localStorage.getItem("plants"));
-  return plants;
-};
+app.delete('/plant/:id', (req, res) => {
+  const { id } = req.params;
+  const plant = plantsServices.removePlantById(id);
+  res.status(204).json(plant);
+});
 
-const getPlantById = (id) => {
-  return defaultPlants.filter((plant) => plant.id === id);
-};
+app.post('/plant/:id', (req, res) => {
+  const { id } = req.params;
+  const newPlant = req.body.plant;
+  const plant = plantsServices.editPlant(id, newPlant);
+  res.status(200).json(plant);
+});
 
-const removePlantById = (id) => {
-  const newPlants = defaultPlants.filter((plant) => plant.id !== id);
-  localStorage.setItem("plants", JSON.stringify(newPlants));
-};
+app.post('/plant/', (req, res) => {
+  const newPlant = req.body.plant;
+  const plant = plantsServices.createNewPlant(newPlant);
+  res.status(201).json(plant);
+});
 
-const getPlantsThatNeedsSunWithId = (id) => {
-  const filteredPlants = defaultPlants.filter((plant) => {
-    if (plant.needsSun && plant.id === id) {
-      if (plant.specialCare.waterFrequency > 2) {
-        return plant;
-      }
-    }
-  });
-  localStorage.setItem("plants", JSON.stringify(filteredPlants));
-  return filteredPlants;
-};
+app.get('/sunny/:id', (req, res) => {
+  const { id } = req.params;
+  const plants = plantsServices.getPlantsThatNeedsSunWithId(id);
+  res.status(200).json(plants);
+});
 
-const editPlant = (plantId, newPlant) => {
-  return defaultPlants.map((plant) => {
-    if (plant.id === plantId) {
-      return newPlant;
-    }
-    return plant;
-  });
-};
 
-const createNewPlant = (plant) => {
-  const mappedPlant = initPlant({ ...plant });
-  defaultPlants.push(mappedPlant);
-  createdPlants++;
-  localStorage.setItem("createdPlants", String(createdPlants));
-  localStorage.setItem("plants", JSON.stringify(defaultPlants));
-  return defaultPlants;
-};
+app.listen(3001, () => {
+  console.log('App listening port 3001!')
+});
