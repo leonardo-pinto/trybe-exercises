@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "leonardo-pinto",
+    "password": "B@gudos2004",
+    "database": "orm_example",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "leonardo-pinto",
+    "password": "B@gudos2004",
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "leonardo-pinto",
+    "password": "B@gudos2004",
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
