@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "leonardo-pinto",
+    "password": "B@gudos2004",
+    "database": "relation1to1",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "leonardo-pinto",
+    "password": "B@gudos2004",
+    "database": "relation1to1",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "leonardo-pinto",
+    "password": "B@gudos2004",
+    "database": "relation1to1",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
