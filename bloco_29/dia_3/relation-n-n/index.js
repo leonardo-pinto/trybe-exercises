@@ -1,8 +1,11 @@
 // index.js
 const express = require('express');
+const bodyParser = require('body-parser');
+
 const { Book, User } = require('./models');
 
 const app = express();
+app.use(bodyParser.json());
 
 app.get('/usersbooks/:id', async (req, res) => {
   try {
