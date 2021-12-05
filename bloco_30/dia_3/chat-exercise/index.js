@@ -15,6 +15,10 @@ app.use(cors());
 
 io.on('connection', (socket) => {
   console.log('usuário conectado');
+
+  socket.on('message', (message) => {
+    console.log(`New message -> ${message}`);
+  })
 });
 
 app.get('/', (_req, res) => {
