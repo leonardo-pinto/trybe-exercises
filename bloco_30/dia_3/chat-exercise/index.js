@@ -1,4 +1,5 @@
-const app = require('express')();
+const express = require('express');
+const app = express();
 const http = require('http').createServer(app);
 const cors = require('cors');
 
@@ -13,16 +14,14 @@ const io = require('socket.io')(http, {
 
 app.use(cors());
 
-io.on('connection', (socket) => {
-  console.log('usuário conectado');
+app.use(express.static(__dirname + '/public'));
 
-  socket.on('message', (message) => {
-    console.log(`New message -> ${message}`);
-  })
-});
+require('./sockets/chat')(io);
+
+
 
 app.get('/', (_req, res) => {
-  res.sendFile(__dirname + '/index.html');
+  res.sendFile(__dirname + '/public/index.html');
 });
 
 
