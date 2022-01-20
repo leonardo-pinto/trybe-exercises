@@ -1,0 +1,18 @@
+{
+  "results": [
+    {
+      "name": "Bulbasaur",
+      "type": [
+        "Grass",
+        "Poison"
+      ]
+    },
+    {
+      "name": "Ivysaur",
+      "type": [
+        "Grass",
+        "Poison"
+      ]
+    }
+  ]
+}
