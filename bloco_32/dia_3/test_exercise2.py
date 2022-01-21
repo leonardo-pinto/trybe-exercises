@@ -1,5 +1,3 @@
-from multiprocessing.sharedctypes import Value
-import py
 import pytest
 from exercise2 import expression_to_number
 
