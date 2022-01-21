@@ -1,4 +1,3 @@
-import pytest
 from exercise1 import fizz_buzz
 
 
